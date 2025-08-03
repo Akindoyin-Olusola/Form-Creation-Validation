@@ -1,16 +1,22 @@
 document.addEventListener("DOMContentLoaded", function () {
+    // Form Selection
     const form = document.getElementById("registration-form");
+
+    // Feedback Division Selection
     const feedbackDiv = document.getElementById("form-feedback");
 
+    // Form Submission and Event Prevention
     form.addEventListener("submit", function (event) {
         event.preventDefault();
 
+        // Retrieve User Inputs and Trimming
         const username = document.getElementById("username").value.trim();
         const email = document.getElementById("email").value.trim();
         const password = document.getElementById("password").value.trim();
 
+        // Initialize Validation Variables
         let isValid = true;
-        let messages = [];
+        const messages = [];
 
         // Username Validation
         if (username.length < 3) {
@@ -21,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // Email Validation
         if (!email.includes("@") || !email.includes(".")) {
             isValid = false;
-            messages.push("Please enter a valid email address.");
+            messages.push("Email must contain '@' and '.'.");
         }
 
         // Password Validation
@@ -30,14 +36,15 @@ document.addEventListener("DOMContentLoaded", function () {
             messages.push("Password must be at least 8 characters long.");
         }
 
-        // Show Feedback
+        // Feedback Display Logic
         feedbackDiv.style.display = "block";
+
         if (isValid) {
             feedbackDiv.textContent = "Registration successful!";
-            feedbackDiv.style.color = "#28a745";
+            feedbackDiv.style.color = "#28a745"; // green
         } else {
             feedbackDiv.innerHTML = messages.join("<br>");
-            feedbackDiv.style.color = "#dc3545";
+            feedbackDiv.style.color = "#dc3545"; // red
         }
     });
 });

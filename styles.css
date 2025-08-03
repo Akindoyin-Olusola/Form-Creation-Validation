@@ -1,11 +1,17 @@
+/* Reset default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
 body {
-    font-family: 'Arial', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     background-color: #f5f5f5;
-    margin: 0;
 }
 
 form {
@@ -16,14 +22,13 @@ form {
     width: 100%;
     max-width: 400px;
     display: flex;
-    flex-direction: column; /* Force vertical stacking */
+    flex-direction: column;
 }
 
 label {
     margin-bottom: 5px;
     font-weight: bold;
     color: #333;
-    display: block; /* Make labels take full width */
 }
 
 input {
@@ -32,8 +37,6 @@ input {
     border: 1px solid #ccc;
     border-radius: 4px;
     width: 100%;
-    box-sizing: border-box;
-    display: block;
 }
 
 button {
@@ -45,7 +48,6 @@ button {
     font-size: 16px;
     cursor: pointer;
     width: 100%;
-    box-sizing: border-box;
     transition: background-color 0.3s ease;
 }
 
@@ -56,7 +58,19 @@ button:hover {
 #form-feedback {
     margin-top: 10px;
     padding: 10px;
-    background-color: #ffbaba;
     border-radius: 4px;
-    display: none;
+    display: none; /* Initially hidden */
+    font-size: 14px;
+}
+
+/* Success feedback */
+#form-feedback.success {
+    background-color: #d4edda;
+    color: #28a745;
+}
+
+/* Error feedback */
+#form-feedback.error {
+    background-color: #f8d7da;
+    color: #dc3545;
 }
