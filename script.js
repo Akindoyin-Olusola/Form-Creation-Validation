@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // Email Validation
         if (!email.includes("@") || !email.includes(".")) {
             isValid = false;
-            messages.push("Email must contain '@' and '.'.");
+            messages.push("Email must contain '@' and '.'");
         }
 
         // Password Validation
