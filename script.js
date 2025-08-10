@@ -1,12 +1,16 @@
-// Wait until HTML content is fully loaded
+// Wait until HTML is fully loaded
 document.addEventListener("DOMContentLoaded", function () {
+    // Form selection
     const form = document.getElementById("registration-form");
+
+    // Feedback div selection
     const feedbackDiv = document.getElementById("form-feedback");
 
+    // Form submit event
     form.addEventListener("submit", function (event) {
         event.preventDefault(); // Stop form from submitting
 
-        // Get and trim inputs
+        // Retrieve user inputs
         const username = document.getElementById("username").value.trim();
         const email = document.getElementById("email").value.trim();
         const password = document.getElementById("password").value.trim();
@@ -32,16 +36,14 @@ document.addEventListener("DOMContentLoaded", function () {
             messages.push("Password must be at least 8 characters long.");
         }
 
-        // Show feedback
+        // Feedback display logic
         feedbackDiv.style.display = "block";
         if (isValid) {
             feedbackDiv.textContent = "Registration successful!";
-            feedbackDiv.style.color = "#28a745"; // green
-            feedbackDiv.style.backgroundColor = "#d4edda";
+            feedbackDiv.style.color = "#28a745";
         } else {
             feedbackDiv.innerHTML = messages.join("<br>");
-            feedbackDiv.style.color = "#d8000c"; // red
-            feedbackDiv.style.backgroundColor = "#ffbaba";
+            feedbackDiv.style.color = "#dc3545";
         }
     });
 });
